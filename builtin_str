@@ -1,0 +1,11 @@
+#include "main.h"
+/*
+* builtin_str - List of builtin commands
+* Return: 0
+*
+*/
+char *builtin_str[] = {
+  "cd",
+  "help",
+  "exit"
+};
