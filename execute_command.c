@@ -9,6 +9,7 @@ void execute_command(char *command, char **args)
 {
 	pid_t pid;
 	int status = 1;
+	int i;
 	bool command_found = false;
 
 	Command commands[] = {
@@ -25,7 +26,7 @@ void execute_command(char *command, char **args)
 	}
 	else
 	{
-		for (int i = 0; commands[i].name != NULL; i++)
+		for (i = 0; commands[i].name != NULL; i++)
 		{
 			if (strcmp(command, commands[i].name) == 0)
 			{
