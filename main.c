@@ -17,12 +17,15 @@ int main(void)
 
 	while (true)
 	{
+		if (isatty(fileno(stdin)))
+		{
+			printf("> ");
+		}
 		read_and_parse_command(&command, &args);
 		if (command[0] == 0)
 			continue;
 		execute_command(command, args);
 	}
-
 	free(command);
 	free(args);
 	return (0);
