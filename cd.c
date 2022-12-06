@@ -4,20 +4,25 @@ int cd(char **args) {
     if (args[1] == NULL)
     {
         // If no directory is specified, go to the user's home directory.
-        if (chdir(getenv("HOME")) != 0)
+        char *home_dir = getenv("HOME");
+        if (home_dir == NULL)
         {
             perror("cd");
             return 0;
         }
+
+        // Use execvp to execute the "cd" command with the specified directory.
+        char *cmd = "cd";
+        char *argv[] = {cmd, home_dir, NULL};
+        execvp(cmd, argv);
     }
     else
     {
-        // Change to the specified directory.
-        if (chdir(args[1]) != 0)
-        {
-            perror("cd");
-            return 0;
-        }
+        // Use execvp to execute the "cd" command with the specified directory.
+        char *cmd = "cd";
+        char *argv[] = {cmd, args[1], NULL};
+        execvp(cmd, argv);
     }
+
     return 0;
 }
