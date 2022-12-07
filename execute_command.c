@@ -12,13 +12,6 @@ void execute_command(char *command, char **args)
 	int i;
 	bool command_found = false;
 
-	Command commands[] = {
-	{ "ls", ls },
-	{ "cd", cd },
-	{ "exit", exit_shell },
-	{ NULL, NULL }
-};
-
 	if (command[0] == '/')
 	{
 		if (execute_path(command, args) == -1)
@@ -43,7 +36,7 @@ void execute_command(char *command, char **args)
 				}
 				else
 					wait(&status);
-			}
+				}
 		}
 		if (!command_found)
 			fprintf(stderr, "Error: command not found\n");
