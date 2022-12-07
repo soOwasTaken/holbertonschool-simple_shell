@@ -1,0 +1,18 @@
+.\" Manpage for help evn
+.TH help evn "1.1" " 7 décember 2022" " help evn page"
+
+
+.SH NAME
+.B env
+
+.SH SYNOPSIS
+.B env [OPTION]... [-] [NAME=VALUE]... [COMMAND [ARG]...]
+
+.SH DESCRIPTION
+.B Set each NAME to VALUE in the environment and run COMMAND
+
+.SH BUGS
+If there are any bugs, or anything that does not work the way it working to, contact in 5800@holbertonstudents.com or in  5660@holbertonstudents.com
+
+.SH AUTHOR
+Mustapha Rayane El kefif and Alexandre Mary
