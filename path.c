@@ -7,7 +7,7 @@
  *
  * Return: 0 on success, -1 on error
  */
-int execute_path(char *path, char **args)
+int execute_path(char *command, char **args)
 {
 	pid_t pid;
 	int status;
@@ -16,7 +16,7 @@ int execute_path(char *path, char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvp(path, args) == -1)
+		if (execvp(command, args) == -1)
 		{
 			perror("Error");
 		}
