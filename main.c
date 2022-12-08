@@ -25,8 +25,7 @@ int main(void)
 		if (command[0] == 0)
 			continue;
 		execute_command(command, args);
+		free(command);
 	}
-	free(command);
-	free(args);
 	return (0);
 }

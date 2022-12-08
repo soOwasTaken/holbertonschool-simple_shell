@@ -6,7 +6,6 @@
  */
 int exit_shell(char **args)
 {
-	if (args)
+		free(args);
 		exit(0);
-	return (0);
 }

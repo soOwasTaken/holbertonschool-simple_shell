@@ -25,20 +25,33 @@ void execute_command(char *command, char **args)
 			{
 				command_found = true;
 				if (strcmp(command, "exit") == 0)
-					exit(0);
+				{
+					free(command);
+					exit_shell(args);
+				}
 				pid = fork();
 				if (pid < 0)
+				{
 					fprintf(stderr, "Error: fork() failed\n");
+				}
 				else if (pid == 0)
 				{
 					if (commands[i].func(args) == -1)
+					{
+						free(command);
 						return;
+					}
 				}
 				else
+				{
 					wait(&status);
+				}
 				}
 		}
 		if (!command_found)
+		{
 			fprintf(stderr, "Error: command not found\n");
+			return;
+		}
 	}
 }
