@@ -16,7 +16,7 @@ int execute_path(char *command, char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvp(command, args) == -1)
+		if (execve(command, args, env) == -1)
 		{
 			perror("Error");
 		}

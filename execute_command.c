@@ -14,8 +14,7 @@ void execute_command(char *command, char **args)
 
 	if (command[0] == '/')
 	{
-		if (execute_path(command, args) == -1)
-			return;
+		execute_path(command,args);
 	}
 	else
 	{

@@ -9,14 +9,13 @@
 void read_and_parse_command(char **command, char ***args)
 {
 	size_t len = 0;
-
 	if (getline(command, &len, stdin) == -1)
 	{
 		free(command);
+		
 		free(args);
 		exit(0);
 	}
-
 	if (**command == '\n')
 		return;
 

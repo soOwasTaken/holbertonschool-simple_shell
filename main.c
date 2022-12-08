@@ -6,7 +6,8 @@
 int main(void)
 {
 	char *command = NULL;
-	char **args = (char **)malloc(sizeof(char *));
+	size_t size = 256;
+	char **args = (char **)calloc(sizeof(char *), size);
 
 	if (args == NULL)
 	{
