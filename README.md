@@ -1,5 +1,5 @@
 
-![image](https://user-images.githubusercontent.com/113839670/206601629-83aa3f27-fd7c-4dff-8c32-4d311890841f.png)
+![image](https://i.imgur.com/fHWfMvZ.png)
 
 # simple_shell
 ## Description of the Project:
