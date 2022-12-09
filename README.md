@@ -61,8 +61,6 @@ The program is not fully fonctionnal, you can check the <span style="color:green
 + ``wait4``
 + ``write``
 </details>
-![image](https://user-images.githubusercontent.com/113839670/206708054-1110cc53-0b4f-4557-a832-8581c96a14bd.png)
-
 
 # simple_shell
 ## Description of the Project:
