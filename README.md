@@ -2,14 +2,14 @@
 ## Description of the Project:
 The shell is a command line interface (CLI) program that takes commands from the keyboard and gives them to the operating system to perform.
 ## Description of a shell:
-In computing, a shell is a computer program that exposes an operating system's services to a human user or other programs. In general, operating system shells use either a command-line interface (CLI) or graphical user interface (GUI), depending on a computer's role and particular operation. It is named a shell because it is the outermost layer around the operating system.
+In computing, a shell is a computer program that exposes an operating system's services to a human user or other programs. In general, operating system shells use either a command-line interface (CLI) or graphical user interface (GUI), depending on a computer's role :desktop_computer:	and particular operation. It is named a shell because it is the outermost layer around the operating system.
 
 ## Resources
 Read or watch:
 
-+ [Unix shell](https://en.wikipedia.org/wiki/Unix_shell).
-* [Thompson shell](https://en.wikipedia.org/wiki/Thompson_shell).
-- [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson).
++ [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
+* [Thompson shell](https://en.wikipedia.org/wiki/Thompson_shell)
+- [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)
 
 ## List of allowed functions and system calls
 + ``access`` (man 2 access)
@@ -136,8 +136,8 @@ Simple shell 0.3 +
 Simple shell 0.4 +
 
 - Implement the `env` built-in, that prints the current environment
-
+**********************************************
 ## Authors
 
-* Alexandre Mary [soOwasTaken](https://github.com/soOwasTaken).
-* Elkefif Mustapha Rayane [rayaneRX](https://github.com/rayaneRX).
+* Alexandre Mary [@soOwasTaken](https://github.com/soOwasTaken)
+* Elkefif Mustapha Rayane [@rayaneRX](https://github.com/rayaneRX)
