@@ -16,7 +16,7 @@ int execute_path(char *command, char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvp(command, args) == -1)
+		if (execve(command, args, environ) == -1)
 		{
 			perror("Error");
 		}
@@ -33,7 +33,12 @@ int execute_path(char *command, char **args)
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-	}
 
+		/* Set status to 0 if the child process terminated normally */
+		if (WIFEXITED(status))
+		{
+			status = 0;
+		}
+	}
 	return (0);
 }

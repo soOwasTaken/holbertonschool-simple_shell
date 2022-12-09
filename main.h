@@ -14,7 +14,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include <readline/readline.h>
 
 /**
   * struct Command - structure for printing
@@ -34,6 +33,9 @@ int cd(char **args);
 int execute_path(char *command, char **args);
 void read_and_parse_command(char **command, char ***args);
 void execute_command(char *command, char **args);
+void execute_command2(void);
+void execute(char **args);
+char **read_command(void);
 int env(char **args);
 extern char **environ;
 static const Command commands[] = {
