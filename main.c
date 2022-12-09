@@ -9,25 +9,13 @@ int main(int argc, char *argv[])
 	size_t size = 256;
 	char **args = (char **)calloc(sizeof(char *), size);
 
-	if (args == NULL)
-	{
-		fprintf(stderr, "Error: malloc() failed\n");
-		exit(1);
-	}
-	args[0] = NULL;
-
 	bool interactive = isatty(fileno(stdin));
 
-	if (!interactive && argc > 1)
+	if (!interactive && (argv || argc))
 	{
-		command = argv[1];
-		for (int i = 2; i < argc; i++)
-		{
-			args[i-2] = argv[i];
-		}
-		args[argc-2] = NULL;
-
-	execute_command(command, args);
+		free(args);
+		execute_command2();
+		exit(0);
 	}
 	else
 	{
@@ -45,5 +33,5 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	return 0;
+	return (0);
 }

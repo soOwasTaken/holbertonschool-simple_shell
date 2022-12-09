@@ -8,18 +8,16 @@
 void execute_command(char *command, char **args)
 {
 	pid_t pid;
-	int status = 1;
-	int i;
+	int status = 1, i;
 	bool command_found = false;
 
 	if (command[0] == '/')
 	{
-		execute_path(command,args);
+		execute_path(command, args);
 	}
 	else
 	{
 		for (i = 0; commands[i].name != NULL; i++)
-		{
 			if (strcmp(command, commands[i].name) == 0)
 			{
 				command_found = true;
@@ -30,9 +28,7 @@ void execute_command(char *command, char **args)
 				}
 				pid = fork();
 				if (pid < 0)
-				{
 					fprintf(stderr, "Error: fork() failed\n");
-				}
 				else if (pid == 0)
 				{
 					if (commands[i].func(args) == -1)
@@ -42,11 +38,8 @@ void execute_command(char *command, char **args)
 					}
 				}
 				else
-				{
 					wait(&status);
-				}
-				}
-		}
+			}
 		if (!command_found)
 		{
 			fprintf(stderr, "Error: command not found\n");
