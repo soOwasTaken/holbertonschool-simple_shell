@@ -61,6 +61,7 @@ void execute(char **args)
 	int ret;
 	char *argument_list[2];
 
+
 	for (i = 0; args[i] != NULL; i++)
 	{
 		pid = fork();
@@ -80,6 +81,20 @@ void execute(char **args)
 			waitpid(pid, NULL, 0);
 		}
 	}
+
+	if (pid == 0)
+	{
+		if (execvp(args[0], args) == -1)
+		{
+			fprintf(stderr, "Error: failed to execute command '%s'\n", args[0]);
+			exit(1);
+		}
+		free(args);
+		free(*args);
+	}
+	else
+		waitpid(pid, NULL, 0);
+
 }
 /**
  * execute_command2 - Reads a command from standard input and run it.
@@ -91,6 +106,10 @@ void execute_command2(void)
 	char **args = read_command();
 
 	execute(args);
+
+
+	free(*args);
+
 	free(args);
 	exit(0);
 }
