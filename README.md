@@ -1,6 +1,7 @@
 # simple_shell
 ## Description of the Project:
-The shell is a command line interface (CLI) program that takes commands from the keyboard and gives them to the operating system to perform.
+so in this project me **Rayane El kefif** and **Alexandre Mary** we program a shell.
+
 ## Description of a shell:
 In computing, a shell is a computer program that exposes an operating system's services to a human user or other programs. In general, operating system shells use either a command-line interface (CLI) or graphical user interface (GUI), depending on a computer's role :desktop_computer:	and particular operation. It is named a shell because it is the outermost layer around the operating system.
 
@@ -137,7 +138,7 @@ Simple shell 0.4 +
 
 - Implement the `env` built-in, that prints the current environment
 **********************************************
-## Authors and their :octocat:
+## Authors and their github :octocat:
 
 * Alexandre Mary [@soOwasTaken](https://github.com/soOwasTaken)
 * Elkefif Mustapha Rayane [@rayaneRX](https://github.com/rayaneRX)
