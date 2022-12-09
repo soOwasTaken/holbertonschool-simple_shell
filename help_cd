@@ -1,0 +1,18 @@
+.\" Manpage for help cd
+.TH help cd "1.1" " 7 décember 2022" " help cd page"
+
+.SH NAME
+.B cd
+
+.SH SYNOPSIS
+.B cd "name of the directory"
+without ""
+
+.SH DESCRIPTION
+.B Change the shell working directory
+
+.SH BUGS
+If there are any bugs, or anything that does not work the way it working to, contact in 5800@holbertonstudents.com or in  5660@holbertonstudents.com
+
+.SH AUTHOR
+Mustapha Rayane El kefif and Alexandre Mary

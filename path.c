@@ -2,7 +2,7 @@
 
 /**
  * execute_path - execute a program located at a specified path
- * @path: path to execute
+ * @command: path to execute
  * @args: the arguments to pass to the program
  *
  * Return: 0 on success, -1 on error

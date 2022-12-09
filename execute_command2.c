@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * execute_command - create a new file.
- * @command: command used
- * @args: args from getline
- * Return: return the attribued command from args.
+ * read_command - read and parse the command if
+ * we are not in the interactive shell.
+ * Return: void
  */
 char **read_command(void)
 {
@@ -13,12 +12,23 @@ char **read_command(void)
 	size_t cmds_len = 0;
 	char *cmd = NULL, *context = NULL, **cmd_list = NULL, *cmds_copy = NULL;
 	int num_cmds = 0;
+	size_t i;
 
 	if (getline(&cmds, &cmds_len, stdin) == -1)
 	{
 		fprintf(stderr, "Error: failed to read command from standard input\n");
 		exit(1);
 	}
+
+	/* Remove the '\' character from the input string */
+	for (i = 0; i < cmds_len; i++)
+	{
+		if (cmds[i] == '\\')
+		{
+			memmove(&cmds[i], &cmds[i + 1], cmds_len - i);
+		}
+	}
+
 	cmds_copy = strdup(cmds);
 	if (cmds_copy == NULL)
 	{
@@ -29,28 +39,58 @@ char **read_command(void)
 	while (cmd != NULL)
 	{
 		cmd_list = realloc(cmd_list, (num_cmds + 1) * sizeof(char *));
+		if (cmd_list == NULL)
+			return (NULL);
 		cmd_list[num_cmds] = cmd;
 		num_cmds++;
 		cmd = strtok_r(NULL, delimiters, &context);
 	}
+	free(cmds);
 	return (cmd_list);
 }
 
-/* Executes a command given a list of arguments*/
+/**
+ * execute - Executes a command given a list of arguments
+ * @args: list of arguments to execute.
+ * Return: void
+ */
 void execute(char **args)
 {
-	pid_t pid = fork();
+	pid_t pid;
+	int i;
+	int ret;
+	char *argument_list[2];
 
-	if (pid == 0)
-		execvp(args[0], args);
-	else
-		waitpid(pid, NULL, 0);
+	for (i = 0; args[i] != NULL; i++)
+	{
+		pid = fork();
+		if (pid == 0)
+		{
+			argument_list[0] = args[i];
+			argument_list[1] = NULL;
+			ret = execvp(args[i], argument_list);
+			if (ret == -1)
+			{
+				perror("execvp");
+				exit(0);
+			}
+		}
+		else
+		{
+			waitpid(pid, NULL, 0);
+		}
+	}
 }
-
-/* Reads a command from standard input and executes it */
+/**
+ * execute_command2 - Reads a command from standard input and run it.
+ *
+ * Return: void
+ */
 void execute_command2(void)
 {
 	char **args = read_command();
 
 	execute(args);
+	free(args);
+	exit(0);
 }

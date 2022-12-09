@@ -1,6 +1,8 @@
 #include "main.h"
 /**
  * main - main entry
+ * @argc: number of arguments
+ * @argv: arguments in a array of strings.
  * Return: return(0) when the shell is exited.
  */
 int main(int argc, char *argv[])
@@ -15,7 +17,7 @@ int main(int argc, char *argv[])
 	{
 		free(args);
 		execute_command2();
-		exit(0);
+		free(*args);
 	}
 	else
 	{
