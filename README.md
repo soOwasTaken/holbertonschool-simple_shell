@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/113839670/206708054-1110cc53-0b4f-4557-a832-8581c96a14bd.png)
+
+
 # simple_shell
 ## Description of the Project:
 so in this project me **Rayane El kefif** and **Alexandre Mary** we program a shell.
