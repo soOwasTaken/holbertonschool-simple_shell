@@ -12,11 +12,19 @@ void read_and_parse_command(char **command, char ***args)
 
 	if (getline(command, &len, stdin) == -1)
 	{
-		free(command);
-		exit(0);
+		free(*command);
+		exit_shell(*args);
 	}
-	if (**command == '\n')
+	if (strcmp(*command, "exit") == 0)
+	{
+		free(command);
 		return;
+	}
+	if (**command == '\n' || **command == EOF)
+	{
+		free(command);
+		return;
+	}
 
 	(*command)[strcspn(*command, "\n")] = 0;
 	(*args)[0] = *command;

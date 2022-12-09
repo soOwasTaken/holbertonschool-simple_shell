@@ -1,0 +1,55 @@
+.\" Manpage for simpel shell project
+.TH simple_shell "1.0" " 5 décember 2022" "simple_shell man page"
+
+.SH NAME
+.B shell
+
+.SH SYNOPSIS
+#include "shell.h"
+
+shell [option_name] [argument ...]
+
+.SH DESCRIPTION
+The Shell is a program that receives computer orders given by a user from its keyboard to send them to the operating system that will run them
+
+A shell is a program that provides an interface for users to interact with the operating system. It allows users to execute commands, control the execution of programs, and manage the system's resources.
+
+.SH OVERVIEW
+When the program is executed, the main function is called, which sets up the environment and starts the shell loop. The shell loop repeatedly prompts the user for input and then uses the read_and_parse_command function to read and parse the user's input.
+
+The read_and_parse_command function reads a line of input from the user and then uses the strtok function to split the input into individual words (i.e., tokens) using whitespace as the delimiter. These tokens are then stored in an array of strings, which is passed to the execute_command function.
+
+The execute_command function checks if the user's input matches any of the predefined shell commands, such as ls or cd,exit,env or a PATH. If a match is found, the corresponding function is called to execute the command. If no match is found, the execute_path function is called to search the user's PATH environment variable for the specified command and execute it if it is found.
+
+The execute function is called by the execute_command function to execute the specified command using the execvp system call. This call creates a new process, which is a duplicate of the calling process, and then executes the specified command in the new process. The original process (i.e., the shell) is suspended until the new process finishes executing, at which point the shell resumes and prompts the user for another command.
+
+This process continues until the user enters the exit command or reach the end of file signal, which causes the shell to terminate..SH OVERVIEW
+
+.SH RETURN
+The main function in the program returns 0 when the shell is exited. In C, the return value of a program (i.e., the value returned by the main function) is used to indicate the success or failure of the program's execution. A return value of 0 typically indicates that the program ran successfully without any errors, while a non-zero value typically indicates that an error occurred during the program's execution.
+
+In the case of the shell program, the main function returns 0 when the exit command is entered by the user, or when EOF is reach (end of file), indicating that the program terminated successfully. If an error occurs during the execution of the program, the main function may return a non-zero value to indicate the error.
+
+.SH EXAMPLE
+$ ./shell
+> ls
+
+The output of the ls command is displayed, showing the contents of the current directory.
+
+> /bin/ls
+
+The output of the ls command is displayed, showing the contents of the current directory.
+
+> exit
+
+The shell terminates and the program returns 0 to indicate successful execution.
+
+.SH BUGS
+> Sometimes when you use the env command before inputing exit, you need to do it 2 times for the program to properly close.
+
+if you use our shell in non interactive mode like echo "    /bin/ls" if you have space before arguments, it will make a segmentfault, but if you run the command like echo "/bin/ls /bin/ls /bin/ls" it will execute this path 3 times properly.
+
+If there are any bugs, or anything that does not work the way it working to, contact in 5800@holbertonstudents.com or in  5660@holbertonstudents.com
+
+.SH AUTHOR
+Mustapha Rayane El kefif and Alexandre Mary

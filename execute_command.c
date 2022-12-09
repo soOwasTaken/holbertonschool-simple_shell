@@ -34,7 +34,7 @@ void execute_command(char *command, char **args)
 					if (commands[i].func(args) == -1)
 					{
 						free(command);
-						return;
+						exit(0);
 					}
 				}
 				else
