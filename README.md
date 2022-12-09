@@ -9,30 +9,30 @@ Shell will be compiled this way:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 ## shell will be executable this way:
-```
-./hsh
-```
+
+```./hsh```
+
 ## Man Page
-```
- man ./man_simple_shell
-```
+
+``` man ./man_simple_shell```
+
 ## help page for command
 for ls:
-```
-man ./help_ls
-```
+
+```man ./help_ls```
+
 for cd:
-```
-man ./help_cd
-```
+`
+``man ./help_cd```
+
 for exit:
-```
-man ./help_exit
-```
+
+```man ./help_exit```
+
 for env:
-```
-man ./help_env
-```
+
+```man ./help_env```
+
 ## Task of The Project
 
 **0. README, man, AUTHORS**
