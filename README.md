@@ -137,7 +137,7 @@ Simple shell 0.4 +
 
 - Implement the `env` built-in, that prints the current environment
 **********************************************
-## Authors
+## Authors and their :octocat:
 
 * Alexandre Mary [@soOwasTaken](https://github.com/soOwasTaken)
 * Elkefif Mustapha Rayane [@rayaneRX](https://github.com/rayaneRX)
