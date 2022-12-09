@@ -29,10 +29,13 @@ char **read_command(void)
 	while (cmd != NULL)
 	{
 		cmd_list = realloc(cmd_list, (num_cmds + 1) * sizeof(char *));
+		if (cmd_list == NULL)
+			return (NULL);
 		cmd_list[num_cmds] = cmd;
 		num_cmds++;
 		cmd = strtok_r(NULL, delimiters, &context);
 	}
+	free(cmds);
 	return (cmd_list);
 }
 
@@ -42,7 +45,15 @@ void execute(char **args)
 	pid_t pid = fork();
 
 	if (pid == 0)
-		execvp(args[0], args);
+	{
+		if (execvp(args[0], args) == -1)
+		{
+			fprintf(stderr, "Error: failed to execute command '%s'\n", args[0]);
+			exit(1);
+		}
+		free(args);
+		free(*args);
+	}
 	else
 		waitpid(pid, NULL, 0);
 }
@@ -53,4 +64,7 @@ void execute_command2(void)
 	char **args = read_command();
 
 	execute(args);
+	free(*args);
+	free(args);
+	exit(0);
 }

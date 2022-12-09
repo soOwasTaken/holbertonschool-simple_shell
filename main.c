@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
 	{
 		free(args);
 		execute_command2();
-		exit(0);
 	}
 	else
 	{
