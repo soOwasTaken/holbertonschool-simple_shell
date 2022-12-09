@@ -226,10 +226,8 @@ $ cat test_ls_2 | ./hsh
 hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
-```
-
 ## Man Page:
-``` 
+```
 man ./man_simple_shell
 ```
 
