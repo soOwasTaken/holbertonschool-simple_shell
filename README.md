@@ -107,6 +107,7 @@ This process continues until the user enters the <span style="color:red">exit</s
 <summary>
 > Click here to see full flowchart explained with developper language.
 </summary>
+
 ```
 start
    |
@@ -142,6 +143,7 @@ start
    |
 end
 ```
+
 </details>
 
 **********************************************
